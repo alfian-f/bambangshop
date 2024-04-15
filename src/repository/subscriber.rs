@@ -3,7 +3,7 @@ use lazy_static::lazy_static;
 use crate::model::subscriber::Subscriber;
 
 lazy_static! {
-    static ref SUBSCRIBERS: DashMap<usize, DashMap<String, Subscriber>> = DashMap::new();
+    static ref SUBSCRIBERS: DashMap<String, DashMap<String, Subscriber>> = DashMap::new();
 }
 
 pub struct SubscriberRepository;
