@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement unsubscribe function in Notification controller.`
     -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [x] Commit: `Implement publish function in Program service and Program controller.`
+    -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -85,4 +85,8 @@ This is the place for you to write reflections:
 1. Separating "Service" and "Repository" from the Model in MVC makes the code easier to manage, test, and adapt over time. It follows the principle of keeping each part of the code responsible for a single task, which helps maintain clarity and flexibility.
 2. If we only use the Model without separating concerns into Service and Repository layers, each model (like Product, Subscriber, Notification) would need to handle both the main logic and data access tasks. For example, the Product model would have to handle not just the rules about products, but also stuff like saving and finding data, like searching a database or working with files. This would make the code hard to manage and too tangled up, which would make it tough to fix or change things as they grow.
 3. Postman really helps me with my current work by testing different parts of the program. I can check how the program reacts when I send requests and see what it gives back. For example, I tested things like listing products, creating new ones, and managing subscriptions. Postman makes it easy to organize these tests into collections, and it's simple to use. It supports all kinds of requests and lets me check different parts of the API. Plus, I can automate tests to make sure everything works as it should. 
+
 #### Reflection Publisher-3
+1. Push model, because whenever there's a change in the Product Service, like creating or deleting a product, a notification is immediately sent to all subscribers interested in that product type. 
+2. For pull model, observers can choose when to get updates, cutting down on unnecessary notifications and making it easier to manage workload. But setting pull intervals right is key to avoiding unnecessary requests and keeping data up-to-date. If updates happen between pulls, it could cause problems for real-time apps.
+3. Without multithreading, we'd have to wait for every observer's notification when a product is added or removed. This delay would slow down requests for all users.
