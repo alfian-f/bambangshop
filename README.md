@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement delete function in Subscriber repository.`
     -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -79,8 +79,10 @@ This is the place for you to write reflections:
 #### Reflection Publisher-1
 1. If we're only dealing with one type of Subscriber-Subject relationship, we don't really need an interface or trait. These are only necessary if we plan to have different types of these relationships later on.
 2. Using a data structure like Dashmap would be more efficient. Dashmap automatically handles unique keys and provides constant time complexity for checking key existence. This makes it a better choice, especially when dealing with repositories that require unique identifiers like ids or urls.
-3.   Implementing Singleton directly for managing shared data can be complicated, requiring careful handling of initialization and thread-safe access using mutexes. DashMap simplifies this by providing a ready-to-use thread-safe HashMap, making it easier to manage shared data without worrying about these complexities. It's widely used and tested, reducing the chance of bugs related to multiple threads accessing data at the same time.
+3. Implementing Singleton directly for managing shared data can be complicated, requiring careful handling of initialization and thread-safe access using mutexes. DashMap simplifies this by providing a ready-to-use thread-safe HashMap, making it easier to manage shared data without worrying about these complexities. It's widely used and tested, reducing the chance of bugs related to multiple threads accessing data at the same time.
 
 #### Reflection Publisher-2
-
+1. Separating "Service" and "Repository" from the Model in MVC makes the code easier to manage, test, and adapt over time. It follows the principle of keeping each part of the code responsible for a single task, which helps maintain clarity and flexibility.
+2. If we only use the Model without separating concerns into Service and Repository layers, each model (like Product, Subscriber, Notification) would need to handle both the main logic and data access tasks. For example, the Product model would have to handle not just the rules about products, but also stuff like saving and finding data, like searching a database or working with files. This would make the code hard to manage and too tangled up, which would make it tough to fix or change things as they grow.
+3. Postman really helps me with my current work by testing different parts of the program. I can check how the program reacts when I send requests and see what it gives back. For example, I tested things like listing products, creating new ones, and managing subscriptions. Postman makes it easy to organize these tests into collections, and it's simple to use. It supports all kinds of requests and lets me check different parts of the API. Plus, I can automate tests to make sure everything works as it should. 
 #### Reflection Publisher-3
